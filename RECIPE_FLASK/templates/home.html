@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECIPIE HUB</title>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <header>
+        <p>Recipe Hub</p>
+        <div class="head-tag">
+            <a href="login">Login</a>
+            <a href="register">Register</a>
+            <!-- <a href="#">Contact</a>
+            <a href="#">About Us</a> -->
+        </div>
+    </header>
+   
+    <div class="main">
+        <form method="GET" action="/">
+            <input type="text" name="search" value="{{search_query}}" placeholder="Search for recipes..." >
+            <select name="category">
+                <option value="">All Categories</option>
+                <option value="breakfast" {% if category == 'breakfast' %} selected {% endif %} >Breakfast</option>
+                <option value="lunch" {% if category == 'lunch' %} selected {% endif %} >Lunch</option>
+                <option value="dinner" {% if category == 'dinner' %} selected {% endif %} >Dinner</option>
+                <option value="desserts" {% if category == 'desserts' %} selected {% endif %} >Desserts</option>
+            </select>
+            <button type="submit" class="btn">Search</button>
+        </form>
+    
+        <h1 style="margin-top: 20px;">Featured Recipies</h1>
+        
+            {% if search_query %}
+                <p>You searched for: {{ search_query }}</p>
+            {% endif %}
+            {% if category %}
+                <p style="text-transform: capitalize;">Selected Category: {{ category }}</p>
+            {% endif %}
+
+            
+        {% for i in recipe %}
+        <div class="card">
+            <p class="title">Recipe ID</p>
+            <p class="text1">{{i.r_id}}</p>
+            <p class="title">Recipe Name</p>
+            <p class="text1">{{i.r_name}}</p>
+            <p class="title">Ingredients</p>
+            <p class="text1">{{i.ingredients}}</p>
+            <p class="title">Instructions</p>
+            <p class="text1">{{i.instructions}}</p>
+            <p class="title">Cooking Time</p>
+            <p class="text1">{{i.cook_time}}</p>
+            <p class="title">Serving Size</p>
+            <p class="text1">{{i.serve_size}}</p>
+            <p class="title">Category</p>
+            <p class="text1">{{i.category}}</p>
+        </div>
+        {% endfor %}
+        <div>
+            
+            {% if recipe %}
+            {% else %}
+            <p style="margin-top: 20px;">No Recipies Found.</p>
+            {% endif %}
+        </div>
+    </div>
+    
+</body>
+</html>

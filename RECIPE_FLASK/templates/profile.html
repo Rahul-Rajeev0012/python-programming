@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile </title> 
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <header>
+        <p>Recipe Hub</p>
+        <div class="head-tag">
+            <a href="view">View Recipes</a>
+            <!-- <a href="deleteprofile">Delete Profile</a> -->
+            <a href="/">Logout</a>
+        </div>
+    </header>
+    <div class="main">
+        <div class="profile-card">
+            <h1>My Profile</h1>
+                {% for i in sqldata %}
+                <form action="viewprofile" class="login-form" method="post">
+                    <div class="text">
+                        <label for="id">User Id : </label>
+                        <input type="number" value="{{ i.id }}" name="id"><br>
+                    </div>
+                    <div class="text">
+                        <label for="username">Username : </label>
+                        <input type="text" value="{{ i.username }}" name="username"><br>
+                    </div>
+                    <div class="text">
+                        <label for="email">Email : </label>
+                        <input type="text" value="{{ i.email }}" name="email"><br>
+                    </div>
+                    <button type="submit">Update Profile</button>
+                    {% if msg %}
+                    <p style="text-align: center;">{{msg}}</p>
+                    {% endif %}
+                </form>
+                <form action="/deleteprofile" method="post" onsubmit="return confirm('Are you sure you want to delete your profile?');">
+                    <input type="hidden" name="id" value="{{ sqldata['id'] }}">
+                    <button type="submit">Delete Profile</button>
+                </form>
+                {% endfor %}
+        <!-- <p>{{msg}}</p>
+        <table border="1px">
+            <thead>
+                <tr>
+                    <th>User Id</th>
+                    <th>User Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in sqldata %}
+                <tr>
+                    <form action="viewprofile" method="post">
+                        <td><input type="number" value="{{ i.id }}" name="id"></td>
+                        <td><input type="text" value="{{ i.username }}" name="username"></td>
+                        <td><input type="text" value="{{ i.email }}" name="email"></td>
+                        <td><button type="submit">Update</button></td>
+                    </form>
+                </tr>
+                {% endfor %}
+                <form action="/deleteprofile" method="post" onsubmit="return confirm('Are you sure you want to delete your profile?');">
+                    <input type="hidden" name="id" value="{{ sqldata['id'] }}">
+                    <button type="submit">Delete Profile</button>
+                </form>
+            </tbody>
+        </table> -->
+        </div>
+    </div>
+    
+</body>
+</html>

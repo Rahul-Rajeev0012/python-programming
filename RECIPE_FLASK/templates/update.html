@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Recipie </title> 
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <header>
+        <p>Recipe Hub</p>
+        <div class="head-tag">
+            <a href="view">View Recipes</a>
+            <a href="viewprofile">View Profile</a>
+            <a href="/">Logout</a>
+        </div>
+    </header>
+    <div class="main">
+        <h1>Update Recipie</h1>
+    <p>{{msg}}</p>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Recipe Id</th>
+                <th>Recipe Name</th>
+                <th>Ingredients</th>
+                <th>instructions</th>
+                <th>Cooking Time</th>
+                <th>Serving Size</th>
+                <th>Catergory</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in sqldata %}
+            <tr>
+                <form action="update" method="post">
+                    <td><input type="number" value="{{ i.r_id }}" name="id"></td>
+                    <td><input type="text" value="{{ i.r_name }}" name="r_name"></td>
+                    <td><input type="text" value="{{ i.ingredients }}" name="ingredients"></td>
+                    <td><input type="text" value="{{ i.instructions }}" name="instructions"></td>
+                    <td><input type="text" value="{{ i.cook_time }}" name="cook_time"></td>
+                    <td><input type="number" value="{{ i.serve_size }}" name="serve_size"></td>
+                    <td><input type="text" value="{{ i.category }}" name="category"></td>
+                    <td><button type="submit">Update</button></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

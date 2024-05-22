@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <div class="login-card">
+        <h1>LOGIN</h1>
+        <form action="loggedin" class="login-form" method="post">
+            <div class="text">
+                <label for="uname">Username : </label>
+                <input type="text" name ="user">
+            </div>
+            <div class="text">
+                <label for="pass">Password : </label>
+                <input type="password" name="pass"><br>
+            </div>
+            <button type="submit">LOGIN</button>
+            {% if msg %}
+            <p style="text-align: center;">{{msg}}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

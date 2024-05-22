@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comments</title> 
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <header>
+        <p>comments</p>
+    </header>
+    <div class="main">
+        <h1>comments</h1>
+        {% for i in sqldata %}
+        <div>
+            <p class="title">i</p>
+            <p class="text1">{{i.c_id}}</p>
+            <p class="title">............</p>
+            <p class="text1">{{i.comment}}</p>
+            <p class="title">............</p>
+            <p class="text1">{{i.date_posted}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div>
+        <form action="addcomments" method="post">
+            <div class="number">
+                <label for="recipie_id">Recipe ID.......: </label>
+                <input type="text" name ="recipie_id">
+            </div>
+            <div class="text">
+                <label for="comment">Add comment: </label>
+                <input type="text" name="comment"><br>
+            </div>
+            <button type="submit">Submit</button>
+            {% if msg %}
+            <p style="text-align: center;">{{msg}}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

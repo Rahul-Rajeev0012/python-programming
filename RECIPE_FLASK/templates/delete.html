@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Recipie </title> 
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <header>
+        <p>Recipe Hub</p>
+        <div class="head-tag">
+            <a href="view">View Recipes</a>
+            <a href="viewprofile">View Profile</a>
+            <a href="/">Logout</a>
+        </div>
+    </header>
+    <div class="main">
+        <h1>Delete Recipie</h1>
+    <p>{{msg}}</p>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>Recipe Id</th>
+                <th>Recipe Name</th>
+                <th>Ingredients</th>
+                <th>instructions</th>
+                <th>Cooking Time</th>
+                <th>Serving Size</th>
+                <th>Catergory</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in sqldata %}
+            <tr>
+                <td>{{i.r_id}}</td>
+                <td>{{i.r_name}}</td>
+                <td>{{i.ingredients}}</td>
+                <td>{{i.instructions}}</td>
+                <td>{{i.cook_time}}</td>
+                <td>{{i.serve_size}}</td>
+                <td>{{i.category}}</td>
+                <td>
+                    <form action="delete" method = "post">
+                        <input type="hidden" name="id" value="{{i.r_id}}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

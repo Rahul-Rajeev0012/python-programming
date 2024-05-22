@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <header>
+        <p>Recipe Hub</p>
+        <div class="head-tag">
+            <a href="view">View Recipes</a>
+            <a href="viewprofile">View Profile</a>
+            <a href="/">Logout</a>
+        </div>
+    </header>
+    <div class="main">
+        <h1 style="margin-bottom: 8px;">Add Recipe</h1>
+    <form action="addrecipe" method="post">
+        <div class="box">
+            <label for="rname">Recipe Name : </label>
+            <input type="text" name ="rname">
+        </div>
+        <div class="box">
+            <label for="ingredients">Ingredients : </label>
+        <input type="text" name="ingredients">
+        </div>
+        <div class="box">
+            <label for="instructions">Instructions : </label>
+        <input type="text" name ="instructions">
+        </div>
+        <div class="box">
+            <label for="cooktime">Cooking Time : </label>
+        <input type="text" name="cooktime">
+        </div>
+        <div class="box">
+            <label for="ssize">Serving Size : </label>
+        <input type="number" name="ssize">
+        </div>
+        <div class="box">
+            <label for="category">Category : </label>
+        <input type="text" name="category">
+        </div>
+        <button type="submit" class="btn">Add Recipe</button><br>
+        {{msg}}
+    </form>
+    </div>
+</body>
+</html>

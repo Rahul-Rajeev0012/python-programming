@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../static/CSS/style.css">
+</head>
+<body>
+    <div class="login-card">
+        <h1>Sign Up</h1>
+        <form action="register" class="login-form" method="post">
+            <div class="text">
+                <label for="username">Username : </label>
+                <input type="text" name ="username">
+            </div>
+            <div class="text">
+                <label for="email">Email Id : </label>
+                <input type="text" name="email"><br>
+            </div>
+            <div class="text">
+                <label for="password">Password : </label>
+                <input type="password" name="password"><br>
+            </div>
+            <button type="submit">Register</button>
+            {% if msg %}
+            <p style="text-align: center;">{{msg}}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
